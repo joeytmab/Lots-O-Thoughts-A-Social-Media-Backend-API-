@@ -1,3 +1,6 @@
+//connection of routing middleware 
+//allows for modular routing across the application
+
 const router = require('express').Router();
 const apiRoutes = require('./api');
 
