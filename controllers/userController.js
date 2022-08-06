@@ -30,7 +30,8 @@ module.exports = {
   },
   // Create new user.
   createUser(req, res) {
-    console.log("createUser function triggered")
+    console.log("createUser function triggered", req.body);
+
 
     User.create(req.body)
       .then((user) => res.json(user))
@@ -39,16 +40,34 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
+  //Update User (need to work on this)
+  // req = params, body? need to figure out request
+
+  updateUser({ params, body }, res) {
+    console.log("updateUser function triggered***")
+    User.findOneAndUpdate({ _id: params.userId }, body, { new: true })
+      .then(user => {
+        if (!user) {
+          res.status(404).json({ message: 'No user found with this id.'});
+          return;
+        }
+        res.json(user);
+      })
+
+      .catch(err => res.status(400).json(err))
+  },
+
   // Delete a User
   deleteUser(req, res) {
     console.log("deleteUser function triggered***")
-    User.findOneAndDelete({ _id: req.params.courseId })
-      .then((course) =>
-        !course
-          ? res.status(404).json({ message: 'No course with that ID' })
-          : Student.deleteMany({ _id: { $in: course.students } })
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
       )
-      .then(() => res.json({ message: 'Course and students deleted!' }))
+      .then(() => res.json({ message: 'User and all thoughts associated by user are now deleted!' }))
       .catch((err) => res.status(500).json(err));
   },
 
