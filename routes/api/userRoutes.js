@@ -4,20 +4,22 @@ const {
   getSingleUser,
   createUser,
   deleteUser,
+  addFriend,
+  removeFriend
 } = require('../../controllers/userController');
 
+// NEED TO TYPE PROPER ROUTING FOR INSOMNIA TESTING
 // /api/users
 router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:userId
 router.route('/:userId').get(getSingleUser).delete(deleteUser);
 
-//NEED TO WORK ON GET FRIENDS/REMOVE FRIENDS
+// /api/users/:userId/friends/:friendsId
 
-// // /api/students/:studentId/assignments
-// router.route('/:studentId/assignments').post(addAssignment);
-
-// // /api/students/:studentId/assignments/:assignmentId
-// router.route('/:studentId/assignments/:assignmentId').delete(removeAssignment);
+// add friend
+router.route('/:userId/friends/:friendsId').post(addFriend);
+// delete (remove) friend
+router.route('/:userId/friends/:friendsId').delete(removeFriend);
 
 module.exports = router;
