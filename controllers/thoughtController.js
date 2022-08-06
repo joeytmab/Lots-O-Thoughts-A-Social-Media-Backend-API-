@@ -7,6 +7,7 @@ module.exports = {
   // Get all thoughts
   getThoughts(req, res) {
     console.log("getThoughts function invoked.")
+
     Thought.find()
       .then(thoughtData => {
 
@@ -22,6 +23,7 @@ module.exports = {
   // Pass through the thought ID, then respond with it.
   getSingleThought(req, res) {
     console.log("getSingleThought function triggered.")
+
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
       .then(thought => {
@@ -44,6 +46,7 @@ module.exports = {
   // user is then updated, by adding the ID of the thought to the thoughts array.
   createThought(req, res) {
     console.log("createThought function invoked.")
+
     Thought.create(req.body)
       .then((thought) => {
         console.log("***req.body accepted, findOneandUpdate for current user")
@@ -68,6 +71,7 @@ module.exports = {
   //Update Thought
   updateThought(req, res) {
     console.log("updateThought function triggered")
+
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
@@ -88,6 +92,8 @@ module.exports = {
   // Delete a thought
   //look by ID; first we remove, then update the array so it no longer shows.
   deleteThought(req, res) {
+    console.log("deleteThought function triggered")
+
     Thought.findOneAndRemove({ _id: req.params.thoughtId })
       .then((thought) => {
         if (!thought) {
@@ -117,7 +123,36 @@ module.exports = {
   },
 
   // Add Reaction (need to work on this)
+  addReaction(req, res) {
+    console.log("addReaction function triggered")
+    Thought.findOneAndUpdate(
+        
+      { _id: req.params.thoughtId },
+      { $addToSet: { reactions: req.body } },
+      { new: true }
+    )
+      .then((thought) => {
+        res.json(thought)
+    })
+
+      .catch((err) => res.status(500).json(err));
+  },
   
   // Remove Reaction (need to work on this)
+  deleteReaction(req, res) {
+    console.log("deleteReaction function triggered")
+
+    Thought.findOneAndUpdate(
+
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { new: true }
+      )
+      .then((thought) => {
+        res.json(thought)
+      })
+      
+      .catch((err) => res.status(500).json(err));
+  },
 
 };
