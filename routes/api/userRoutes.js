@@ -3,6 +3,7 @@ const {
   getUsers,
   getSingleUser,
   createUser,
+  updateUser,
   deleteUser,
   addFriend,
   removeFriend
@@ -10,10 +11,12 @@ const {
 
 // NEED TO TYPE PROPER ROUTING FOR INSOMNIA TESTING
 // /api/users
+// get user, create new user
 router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:userId
-router.route('/:userId').get(getSingleUser).delete(deleteUser);
+// get single user, update user by ID, delete user by ID
+router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
 
 // /api/users/:userId/friends/:friendsId
 
