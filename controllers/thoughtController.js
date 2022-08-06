@@ -75,6 +75,7 @@ module.exports = {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
+      { new: true }
     )
       .then((thought) => {
         if (!thought) {
@@ -123,6 +124,7 @@ module.exports = {
   },
 
   // Add Reaction (need to work on this)
+  // need $addToSet
   addReaction(req, res) {
     console.log("addReaction function triggered")
     Thought.findOneAndUpdate(
@@ -139,6 +141,7 @@ module.exports = {
   },
   
   // Remove Reaction (need to work on this)
+  // need $pull
   deleteReaction(req, res) {
     console.log("deleteReaction function triggered")
 
