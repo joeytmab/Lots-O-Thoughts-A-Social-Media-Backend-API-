@@ -9,8 +9,8 @@ const reactionSchema = new Schema(
     reactionContent: {
       type: String,
       required: true,
-      maxlength: 128,
-      minlength: 1,
+      maxLength: 128,
+      minLength: 1,
     },
     username: {
       type: String,
@@ -19,14 +19,14 @@ const reactionSchema = new Schema(
     dateCreated: {
       type: Date,
       default: Date.now(),
-      get: (date) => timeSince(date),
     },
   },
   {
     toJSON: {
       getters: true,
+      virtuals: true
     },
-    id: false,
+    //id: false,
   }
 );
 

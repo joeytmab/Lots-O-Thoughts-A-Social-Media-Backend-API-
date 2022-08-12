@@ -51,19 +51,13 @@ module.exports = {
       .then((thought) => {
         console.log("***req.body accepted, findOneandUpdate for current user")
         return User.findOneAndUpdate(
-          { _id: req.body.userId },
-          { $addtoSet: { thoughts: thought._id } },
+          { username: req.body.username },
+          { $push: { thoughts: thought._id } },
           { new: true }
         );
       })
 
-      .then((user) => {
-        if (!user) {
-          res.status(404).json({ message: 'No user found with that ID.'})
-        } else {
-          res.status(200).json({ message: 'New thought created.' })
-        }
-      })
+      .then(user => res.status(200).json(user), console.log("**Thought created!**"))
       
       .catch((err) => res.status(500).json(err));
   },
@@ -101,22 +95,14 @@ module.exports = {
           res.status(404).json({ message: 'No such thought exists' })
         } else {
            return User.findOneAndUpdate(
-              { thoughts: req.params.thoughtId },
+              { thoughts: req.thoughtId },
               { $pull: { thoughts: req.params.thoughtId } },
               { new: true }
             )
         }
       })
-      .then((user) => {
-        if (!user) {
-          res.status(404).json({
-              message: 'thought created, but no user found with this id.',
-            })
-        } else {
-          res.json(user)
-          console.log("Thought successfully deleted.")
-        }
-      })
+      .then(user => res.json(user))
+      
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -125,12 +111,12 @@ module.exports = {
 
   // Add Reaction (need to work on this)
   // need $addToSet
-  addReaction(req, res) {
+  addReaction({params, body}, res) {
     console.log("addReaction function triggered")
     Thought.findOneAndUpdate(
         
-      { _id: req.params.thoughtId },
-      { $addToSet: { reactions: req.body } },
+      { _id: params.thoughtId },
+      { $addToSet: { reactions: body } },
       { new: true }
     )
       .then((thought) => {
