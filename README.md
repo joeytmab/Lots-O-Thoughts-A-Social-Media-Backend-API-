@@ -11,22 +11,21 @@ Technologies used include `Express.js` (for controller routes), and Mongoose ODM
 Demonstration of back-end functionality is to be done locally via Port 3001, as this repository is not deployed publicly. Routing addresses for APIs are listed here:
 
 Get Users: `localhost:3001/api/users`<br/>
-Get User by Id: `localhost:3001/api/users/:userId`
-Create New User (via POST route): `localhost:3001/api/users`
-Update User (via PUT route): `localhost:3001/api/users/:userId`
-Delete User (via DELETE route): `localhost:3001/api/users/:userId`
+Get User by Id: `localhost:3001/api/users/:userId`<br/>
+Create New User (via POST route): `localhost:3001/api/users`<br/>
+Update User (via PUT route): `localhost:3001/api/users/:userId`<br/>
+Delete User (via DELETE route): `localhost:3001/api/users/:userId`<br/>
 
-Add Friend (via POST): `localhost:3001/api/users/:userId/friends/:friendId`
-Remove Friend (via DELETE): `localhost:3001/api/users/:userId/friends/:friendId`
+Add Friend (via POST): `localhost:3001/api/users/:userId/friends/:friendId`<br/>
+Remove Friend (via DELETE): `localhost:3001/api/users/:userId/friends/:friendId`<br/>
 
-Get Thoughts: `localhost:3001/api/thoughts`
-Get Thought by Id: `localhost:3001/api/thoughts/:thoughtId`
-Create Thought (via POST): `localhost:3001/api/thoughts`
-Update Thought (via PUT): `localhost:3001/api/thoughts/:thoughtId`
-Delete Thought (via DELETE): `localhost:3001/api/thoughts/:thoughtId`
+Get Thoughts: `localhost:3001/api/thoughts`<br/>
+Get Thought by Id: `localhost:3001/api/thoughts/:thoughtId`<br/>
+Create Thought (via POST): `localhost:3001/api/thoughts`<br/>
+Delete Thought (via DELETE): `localhost:3001/api/thoughts/:thoughtId`<br/>
 
-Add Reaction (via POST): `localhost:3001/api/thoughts/:thoughtId/reactions`
-Remove Reaction (via DELETE): `localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId`
+Add Reaction (via POST): `localhost:3001/api/thoughts/:thoughtId/reactions`<br/>
+Remove Reaction (via DELETE): `localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId`<br/>
 
 ## Installation Parameters
 
@@ -40,10 +39,17 @@ Note: if running the application locally (instead of on the Heroku environment),
 
 ## Walkthrough Video (4 Parts)
 
-[Link 1 of 4](https://www.youtube.com/watch?v=WB36cnkwuJU)
-[Link 2 of 4](https://www.youtube.com/watch?v=c1C5otEg2CM)
-[Link 3 of 4](https://www.youtube.com/watch?v=CRkxU10U23w)
-[Link 4 of 4](https://www.youtube.com/watch?v=bHWGPx3IgKw)
+Video link 1 demonstrates the routing parameters for getting all users, users by Id, and the creation and updating of new users.<br/>
+[Link 1 of 4](https://www.youtube.com/watch?v=WB36cnkwuJU)<br/>
+
+Video link 2 demonstrates delete pathway of removing a user, as well as functionality in the adding and removing of friends from a user. <br/>
+[Link 2 of 4](https://www.youtube.com/watch?v=c1C5otEg2CM)<br/>
+
+Video link 3 showcases the CRUD functionality for thoughts. Here, we can show getting thoughts (either all or by Id), creating new thoughts, and updating/deleting existing thoughts.<br/>
+[Link 3 of 4](https://www.youtube.com/watch?v=CRkxU10U23w)<br/>
+
+Video link 4 demonstrates all functionality of creating and removing reactions to thoughts within our database.<br/>
+[Link 4 of 4](https://www.youtube.com/watch?v=bHWGPx3IgKw)<br/>
 
 ## Questions? Comments?
 
