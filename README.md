@@ -4,9 +4,9 @@
 
 Social media platform backend, ultimately allowing for new and existing users to add/remove friends,post their thoughts of the day, and comment (via reactions) to other users' posted thoughts.
 
-This repository focuses on backend functionality, with a emphasis on demonstrating the abilities of `MongoDB`. In contrast to `mySQL`, MongoDB is a much more flexible document-oriented database program. Social networks favor using this program in contrast to other relational databases due to MongoDB's ability to process large amounts of data quickly and its flexibility with unstructured data.
+This repository focuses on backend functionality, with an emphasis on demonstrating the abilities of `MongoDB`. In contrast to `mySQL`, MongoDB is a much more flexible document-oriented database program. Social networks favor using this program in contrast to other relational databases due to MongoDB's ability to process large amounts of data quickly and its flexibility with unstructured data.
 
-Technologies used include `Express.js` (for controller routes), and Mongoose ODM (for object data modeling with Node and MongoDB).
+Technologies used include `Express.js` (for controller routes), and `Mongoose` ODM (for object data modeling with Node and MongoDB).
 
 Demonstration of back-end functionality is to be done locally via Port 3001, as this repository is not deployed publicly. Routing addresses for APIs are listed here:
 
@@ -29,13 +29,13 @@ Remove Reaction (via DELETE): `localhost:3001/api/thoughts/:thoughtId/reactions/
 
 ## Installation Parameters
 
-`npm i` allows for necessary installation of miscellaneous packages. Doing so will install Express, Dotenv, Bcrypt, and Handlebars.js.
+Though not necessary, MongoDB Compass is a program used to properly visualize the database created with the application. Insomnia (or another API testing platform) is also needed to demonstrate proper routing of our APIs.
 
-A MySQL Workbench is also used, but not required, for proper database function. `mysql -u root -p`, followed by `source db/schema.sql` will also ensure proper results.
+`npm i` allows for necessary installation of miscellaneous packages.
 
-Finally, `node seeds/seed.js` will be used to seed user, post, and comment data for visualization. `npm run start` can be used after to initialize the app.
+`npm run start` can be used after to initialize the app. If the app is not able to be run because the designated port is being used, `npx kill-port 3001` can be used to clear and prepare for proper utility.
 
-Note: if running the application locally (instead of on the Heroku environment), `http://localhost:3001/` will be the target address for application access.
+No other requirements for installation are needed.
 
 ## Walkthrough Video (4 Parts)
 
