@@ -10,7 +10,7 @@ Technologies used include `Express.js` (for controller routes), and Mongoose ODM
 
 Demonstration of back-end functionality is to be done locally via Port 3001, as this repository is not deployed publicly. Routing addresses for APIs are listed here:
 
-Get Users: `localhost:3001/api/users`
+Get Users: `localhost:3001/api/users`<br/>
 Get User by Id: `localhost:3001/api/users/:userId`
 Create New User (via POST route): `localhost:3001/api/users`
 Update User (via PUT route): `localhost:3001/api/users/:userId`
